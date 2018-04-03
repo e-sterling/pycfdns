@@ -15,9 +15,7 @@ class cfdns:
     def query(self, name, typ='A'):
 
         if isinstance(typ, (int, long, float)): typ = str(typ)
-
         typ = typ.upper()
-
         if typ == 'ANY' or typ == '256':
             return 'Type ANY not supported'
         elif typ not in self.types:
@@ -28,7 +26,6 @@ class cfdns:
                 'type' : typ,
                 'name' : 'google.com'
             }
-
             r = requests.get("https://cloudflare-dns.com/dns-query", params=params)
             ret = r.json()
             ret.update({"elapsed":(float(r.elapsed.microseconds) / 1000)})
