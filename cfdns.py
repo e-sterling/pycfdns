@@ -24,7 +24,7 @@ class cfdns:
             params = {
                 'ct' : 'application/dns-json',
                 'type' : typ,
-                'name' : 'google.com'
+                'name' : name
             }
             r = requests.get("https://cloudflare-dns.com/dns-query", params=params)
             ret = r.json()
