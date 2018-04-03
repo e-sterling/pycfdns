@@ -33,10 +33,3 @@ class cfdns:
             ret = r.json()
             ret.update({"elapsed":(float(r.elapsed.microseconds) / 1000)})
             return ret
-
-c=cfdns()
-resp = c.query('google.co.uk','NS')
-print resp
-
-for r in resp['Answer']:
-    print r['data']
